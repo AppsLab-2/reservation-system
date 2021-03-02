@@ -1,0 +1,36 @@
+name: Main Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npx ng build
+
+      - name: Deploy
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.PAGE_TOKEN }}
+          PAGE_REPO: ${{ secrets.PAGE_REPO }}
+          PAGE_USER: ${{ secrets.PAGE_USER }}
+          PAGE_MAIL: ${{ secrets.PAGE_MAIL }}
+          PAGE_CNAME: ${{ secrets.PAGE_CNAME }}
+        run: npx ng deploy --repo=$PAGE_REPO --name=$PAGE_USER --email=$PAGE_MAIL --cname=$PAGE_CNAME
