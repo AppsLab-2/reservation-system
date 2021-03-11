@@ -4,11 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sk.renmo.zeus.model.Business;
 import sk.renmo.zeus.repository.BusinessRepository;
+import sk.renmo.zeus.util.IterableUtils;
 
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -18,10 +17,8 @@ public class BusinessServiceImpl implements BusinessService {
 
     @Override
     public Collection<Business> getAllBusinesses() {
-        Iterable<Business> businessIterable = this.repository.findAll();
-        Set<Business> businesses = new HashSet<>();
-        businessIterable.forEach(businesses::add);
-        return businesses;
+        Iterable<Business> businesses = this.repository.findAll();
+        return IterableUtils.toSet(businesses);
     }
 
     @Override

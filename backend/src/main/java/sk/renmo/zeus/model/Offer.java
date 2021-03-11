@@ -1,6 +1,7 @@
 package sk.renmo.zeus.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -8,17 +9,21 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import java.time.LocalTime;
 
-@Data
 @Entity
+@Getter
+@Setter
 public class Offer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "business_id", nullable = false, insertable = false, updatable = false)
     private Business business;
+
+    @Column(name = "business_id", nullable = false)
+    private long businessId;
 
     @NotBlank
     private String name;
@@ -31,5 +36,10 @@ public class Offer {
 
     @NotNull
     private LocalTime duration;
+
+    public void setBusiness(Business business) {
+        this.business = business;
+        this.businessId = business.getId();
+    }
 
 }

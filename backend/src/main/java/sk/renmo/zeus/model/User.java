@@ -1,6 +1,7 @@
 package sk.renmo.zeus.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
@@ -9,8 +10,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
-@Data
 @Entity
+@Getter
+@Setter
 public class User {
 
     @Id
