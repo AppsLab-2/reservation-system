@@ -1,0 +1,28 @@
+<!-- TODO: finish this page -->
+<div *ngIf="business !== undefined">
+  <img
+    src="{{ business.headerImage }}"
+    class="header-image"
+    alt="Business header image"
+  />
+  <div class="business-info">
+    <p class="title">{{ business.name }}</p>
+    <div class="tag">
+      <i class="fas fa-cut tag-icon"></i>
+      <span class="tag-text">Kaderníctvo</span>
+    </div>
+    <p class="description">
+      {{ business.description }}
+    </p>
+    <div class="tag">
+      <div>
+        <i class="fas fa-envelope"></i>
+        <span>monika@kadernictvomonika.sk</span>
+      </div>
+      <div>
+        <i class="fas fa-phone"></i>
+        <span>+421 123 456 789</span>
+      </div>
+    </div>
+  </div>
+</div>

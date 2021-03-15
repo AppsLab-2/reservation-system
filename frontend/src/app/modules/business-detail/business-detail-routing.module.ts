@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
-import { LandingComponent } from './component/landing/landing.component';
+import { BusinessDetailComponent } from './component/business-detail/business-detail.component';
 
 const routes: Route[] = [
-  { path: '', component: LandingComponent }
+  { path: ':id', component: BusinessDetailComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class LandingRoutingModule { }
+export class BusinessDetailRoutingModule { }

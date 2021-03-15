@@ -26,7 +26,7 @@ public class OfferController {
                 .collect(Collectors.toSet());
     }
 
-    private static OfferDto toDto(Offer offer) {
+    static OfferDto toDto(Offer offer) {
         OfferDto dto = new OfferDto();
         dto.setId(offer.getId());
         dto.setBusinessId(offer.getBusinessId());
