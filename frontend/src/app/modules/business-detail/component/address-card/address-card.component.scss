@@ -1,0 +1,35 @@
+.card {
+  background: #fdfdfd;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 55px;
+  height: 306px;
+  width: 278px;
+}
+
+.address-image {
+  width: 278px;
+  height: 226px;
+  border-radius: 55px 55px 0 0;
+  display: block;
+}
+
+.address {
+  height: 80px;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.address p {
+  margin: 0;
+}
+
+.sub-address {
+  color: rgba(0, 0, 0, 0.6);
+}

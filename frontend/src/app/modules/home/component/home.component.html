@@ -1,5 +1,5 @@
 <div class="cards">
-  <a *ngFor="let business of businesses | async" [routerLink]="['/detail', business.id]">
+  <a *ngFor="let business of businesses$ | async" [routerLink]="['/detail', business.id]">
     <hera-business-card [business]="business"></hera-business-card>
   </a>
 </div>

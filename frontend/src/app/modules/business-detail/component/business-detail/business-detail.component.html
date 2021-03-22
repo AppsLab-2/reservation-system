@@ -5,7 +5,8 @@
     class="header-image"
     alt="Business header image"
   />
-  <div class="business-info">
+  <div class="wrapper">
+    <div class="business-info">
     <p class="title">{{ business.name }}</p>
     <div class="tag">
       <i class="fas fa-cut tag-icon"></i>
@@ -14,7 +15,7 @@
     <p class="description">
       {{ business.description }}
     </p>
-    <div class="tag">
+    <div class="contact">
       <div>
         <i class="fas fa-envelope"></i>
         <span>monika@kadernictvomonika.sk</span>
@@ -24,5 +25,7 @@
         <span>+421 123 456 789</span>
       </div>
     </div>
+    </div>
+    <hera-address-card [address]="business.address"></hera-address-card>
   </div>
 </div>

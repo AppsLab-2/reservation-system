@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BusinessService } from '../../../core/service/business.service';
-import { Observable } from 'rxjs';
-import { Business } from '../../../core/model/business.model';
+import { Store } from '@ngrx/store';
+import { HomeAction } from '../store/home.action';
+import { HomeState, selectHomeBusinesses } from '../store/home.state';
 
 @Component({
   selector: 'hera-home',
@@ -10,14 +10,14 @@ import { Business } from '../../../core/model/business.model';
 })
 export class HomeComponent implements OnInit {
 
-  businesses?: Observable<Business[]>;
+  businesses$ = this.store.select(selectHomeBusinesses);
 
   constructor(
-    private readonly businessService: BusinessService
+    private readonly store: Store<{ home: HomeState }>
   ) { }
 
   ngOnInit(): void {
-    this.businesses = this.businessService.getBusinesses();
+    this.store.dispatch({ type: HomeAction.GetBusinesses });
   }
 
 }

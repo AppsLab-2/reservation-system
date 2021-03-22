@@ -3,10 +3,15 @@
   height: 450px;
 }
 
-.business-info {
+.wrapper {
   height: 306px;
   width: 875px;
   margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.business-info {
   font-family: Roboto, sans-serif;
   color: rgba(0, 0, 0, 0.8);
 }
@@ -14,7 +19,7 @@
 .title {
   font-size: 40px;
   line-height: 47px;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .tag {
