@@ -10,8 +10,4 @@ export const initialHomeState: HomeState = {
 };
 
 export const selectHomeState = createFeatureSelector<HomeState>('home');
-
-export const selectHomeBusinesses = createSelector(
-  selectHomeState,
-  (home: HomeState) => home.businesses
-);
+export const selectHomeBusinesses = createSelector(selectHomeState, state => state.businesses);

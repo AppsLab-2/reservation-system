@@ -2,10 +2,12 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
 import { BusinessCardComponent } from './component/business-card/business-card.component';
+import { CardsHeaderComponent } from './component/cards-header/cards-header.component';
 
 @NgModule({
   declarations: [
-    BusinessCardComponent
+    BusinessCardComponent,
+    CardsHeaderComponent
   ],
   imports: [
     CommonModule,
@@ -14,7 +16,8 @@ import { BusinessCardComponent } from './component/business-card/business-card.c
   exports: [
     CommonModule,
     MaterialModule,
-    BusinessCardComponent
+    BusinessCardComponent,
+    CardsHeaderComponent
   ]
 })
 export class SharedModule {

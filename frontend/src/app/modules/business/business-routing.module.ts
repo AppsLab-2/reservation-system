@@ -10,4 +10,4 @@ const routes: Route[] = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class BusinessDetailRoutingModule { }
+export class BusinessRoutingModule { }

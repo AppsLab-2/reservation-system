@@ -9,10 +9,10 @@ import { getBusinessesError, getBusinessesSuccess, HomeAction } from './home.act
 export class HomeEffects {
 
   getBusinesses$ = createEffect(() =>
-    this.actions$.pipe(
+    this.action$.pipe(
       ofType(HomeAction.GetBusinesses),
-      mergeMap(() => this.businessService.getBusinesses()
-        .pipe(
+      mergeMap(() =>
+        this.businessService.getBusinesses().pipe(
           map(businesses => getBusinessesSuccess({ businesses })),
           catchError(() => of(getBusinessesError()))
         )
@@ -21,7 +21,7 @@ export class HomeEffects {
   );
 
   constructor(
-    private readonly actions$: Actions,
+    private readonly action$: Actions,
     private readonly businessService: BusinessService
   ) { }
 
