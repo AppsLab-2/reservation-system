@@ -1,10 +1,10 @@
 <div *ngIf="address !== undefined" class="card">
-  <!-- TODO: replace this with maps -->
-  <img
-    class="address-image"
-    src="https://images.pexels.com/photos/4413764/pexels-photo-4413764.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-    alt=""
-  />
+  <hera-map
+    [zoom]="17"
+    [static]="true"
+    [location]="[18.08192, 48.30314]"
+    class="map"
+  ></hera-map>
   <div class="address">
     <p>{{ address.street }}</p>
     <p class="sub-address">{{ address.postalCode }} {{ address.town }}</p>

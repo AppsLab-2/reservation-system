@@ -2,11 +2,13 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
 import { BusinessCardComponent } from './component/business-card/business-card.component';
+import { MapComponent } from './component/map/map.component';
 import { CardsHeaderComponent } from './component/cards-header/cards-header.component';
 
 @NgModule({
   declarations: [
     BusinessCardComponent,
+    MapComponent,
     CardsHeaderComponent
   ],
   imports: [
@@ -17,6 +19,7 @@ import { CardsHeaderComponent } from './component/cards-header/cards-header.comp
     CommonModule,
     MaterialModule,
     BusinessCardComponent,
+    MapComponent,
     CardsHeaderComponent
   ]
 })
