@@ -9,6 +9,7 @@ public class OfferDto {
     private long id;
     private long businessId;
     private String name;
+    private String description;
     private float price;
     private LocalTime duration;
 }

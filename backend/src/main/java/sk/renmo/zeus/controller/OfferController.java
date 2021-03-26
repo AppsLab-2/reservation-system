@@ -31,6 +31,7 @@ public class OfferController {
         dto.setId(offer.getId());
         dto.setBusinessId(offer.getBusinessId());
         dto.setName(offer.getName());
+        dto.setDescription(offer.getDescription());
         dto.setPrice(offer.getPrice());
         dto.setDuration(offer.getDuration());
         return dto;

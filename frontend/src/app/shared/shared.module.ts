@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
 import { BusinessCardComponent } from './component/business-card/business-card.component';
 import { MapComponent } from './component/map/map.component';
-import { CardsHeaderComponent } from './component/cards-header/cards-header.component';
+import { HeaderComponent } from './component/header/header.component';
+import { OfferCardComponent } from './component/offer-card/offer-card.component';
 
 @NgModule({
   declarations: [
     BusinessCardComponent,
     MapComponent,
-    CardsHeaderComponent
+    HeaderComponent,
+    OfferCardComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { CardsHeaderComponent } from './component/cards-header/cards-header.comp
     MaterialModule,
     BusinessCardComponent,
     MapComponent,
-    CardsHeaderComponent
+    HeaderComponent,
+    OfferCardComponent
   ]
 })
 export class SharedModule {

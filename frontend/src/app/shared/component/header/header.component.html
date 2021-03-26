@@ -1,5 +1,5 @@
 <div *ngIf="icon != undefined && title != undefined" class="header">
   <i [ngClass]="icon" class="icon"></i>
   <span class="title">{{ title }}</span>
-  <button class="button" mat-stroked-button>Viac</button>
+  <button *ngIf="showButton" class="button" mat-stroked-button>Viac</button>
 </div>

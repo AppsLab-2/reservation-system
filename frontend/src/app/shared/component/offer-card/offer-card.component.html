@@ -1,0 +1,11 @@
+<div *ngIf="offer" class="card">
+  <div class="info">
+    <h3 class="title">{{ offer.name }}</h3>
+    <p class="description">{{ offer.description }}</p>
+  </div>
+  <div class="terms">
+    <!-- TODO: create pipe -->
+    <p>{{ offer.duration }}</p>
+    <p>{{ offer.price | currency: "EUR" }}</p>
+  </div>
+</div>

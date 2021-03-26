@@ -1,0 +1,37 @@
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  margin: 18px auto;
+  height: 80px;
+  width: 875px;
+  border-radius: 5px;
+  display: flex;
+  color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+}
+
+.title {
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.description {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 7px 0;
+}
+
+.info {
+  width: 75%;
+}
+
+.terms {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

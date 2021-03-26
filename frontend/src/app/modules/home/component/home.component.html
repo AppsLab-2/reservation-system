@@ -1,4 +1,4 @@
-<hera-cards-header title="Obľúbené" icon="far fa-heart"></hera-cards-header>
+<hera-header title="Obľúbené" icon="far fa-heart" [showButton]="true"></hera-header>
 <div class="cards">
   <a *ngFor="let business of businesses$ | async" [routerLink]="['/business', business.id]">
     <hera-business-card [business]="business"></hera-business-card>

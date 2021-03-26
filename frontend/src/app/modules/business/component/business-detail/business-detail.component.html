@@ -7,25 +7,33 @@
   />
   <div class="wrapper">
     <div class="business-info">
-    <p class="title">{{ business.name }}</p>
-    <div class="tag">
-      <i class="fas fa-cut tag-icon"></i>
-      <span class="tag-text">Kaderníctvo</span>
-    </div>
-    <p class="description">
-      {{ business.description }}
-    </p>
-    <div class="contact">
-      <div>
-        <i class="fas fa-envelope"></i>
-        <span>monika@kadernictvomonika.sk</span>
+      <p class="title">{{ business.name }}</p>
+      <div class="tag">
+        <i class="fas fa-cut tag-icon"></i>
+        <span class="tag-text">Kaderníctvo</span>
       </div>
-      <div>
-        <i class="fas fa-phone"></i>
-        <span>+421 123 456 789</span>
+      <p class="description">
+        {{ business.description }}
+      </p>
+      <div class="contact">
+        <div>
+          <i class="fas fa-envelope"></i>
+          <span>monika@kadernictvomonika.sk</span>
+        </div>
+        <div>
+          <i class="fas fa-phone"></i>
+          <span>+421 123 456 789</span>
+        </div>
       </div>
-    </div>
     </div>
     <hera-address-card [address]="business.address"></hera-address-card>
+  </div>
+
+  <hera-header title="Ponuky" icon="fas fa-bars"></hera-header>
+  <div class="offers">
+    <hera-offer-card
+      *ngFor="let offer of business.offers"
+      [offer]="offer"
+    ></hera-offer-card>
   </div>
 </div>
