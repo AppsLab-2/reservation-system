@@ -5,17 +5,21 @@ import { BusinessCardComponent } from './component/business-card/business-card.c
 import { MapComponent } from './component/map/map.component';
 import { HeaderComponent } from './component/header/header.component';
 import { OfferCardComponent } from './component/offer-card/offer-card.component';
+import { RouterModule } from '@angular/router';
+import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     BusinessCardComponent,
     MapComponent,
     HeaderComponent,
-    OfferCardComponent
+    OfferCardComponent,
+    NavBarComponent
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule
   ],
   exports: [
     CommonModule,
@@ -23,7 +27,8 @@ import { OfferCardComponent } from './component/offer-card/offer-card.component'
     BusinessCardComponent,
     MapComponent,
     HeaderComponent,
-    OfferCardComponent
+    OfferCardComponent,
+    NavBarComponent
   ]
 })
 export class SharedModule {

@@ -7,12 +7,18 @@ import sk.renmo.zeus.repository.OfferRepository;
 import sk.renmo.zeus.util.IterableUtils;
 
 import java.util.Collection;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class OfferServiceImpl implements OfferService {
 
     private final OfferRepository repository;
+
+    @Override
+    public Optional<Offer> getOfferById(long id) {
+        return this.repository.findById(id);
+    }
 
     @Override
     public Collection<Offer> getOffersByBusiness(long businessId) {

@@ -1,1 +1,22 @@
-<p>landing works!</p>
+<hera-nav-bar></hera-nav-bar>
+<div class="card">
+  <div class="text">
+    <h1 class="title">Rezervuj. Čokoľvek. Kdekoľvek.</h1>
+    <p class="sub-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore
+    </p>
+  </div>
+
+  <img
+    src="https://images.pexels.com/photos/3771087/pexels-photo-3771087.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260https://images.pexels.com/photos/3771087/pexels-photo-3771087.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+    class="card-image"
+    alt=""
+  />
+</div>
+
+<div class="categories">
+  <div *ngFor="let category of categories" class="category-card">
+    <h3 class="category-text">{{ category }}</h3>
+  </div>
+</div>
