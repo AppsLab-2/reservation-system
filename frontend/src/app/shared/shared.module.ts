@@ -7,6 +7,8 @@ import { HeaderComponent } from './component/header/header.component';
 import { OfferCardComponent } from './component/offer-card/offer-card.component';
 import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
+import { SearchBarComponent } from './component/search-bar/search-bar.component';
+import { SearchNavBarComponent } from './component/search-nav-bar/search-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { NavBarComponent } from './component/nav-bar/nav-bar.component';
     MapComponent,
     HeaderComponent,
     OfferCardComponent,
-    NavBarComponent
+    NavBarComponent,
+    SearchBarComponent,
+    SearchNavBarComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +32,9 @@ import { NavBarComponent } from './component/nav-bar/nav-bar.component';
     MapComponent,
     HeaderComponent,
     OfferCardComponent,
-    NavBarComponent
+    NavBarComponent,
+    SearchBarComponent,
+    SearchNavBarComponent
   ]
 })
 export class SharedModule {

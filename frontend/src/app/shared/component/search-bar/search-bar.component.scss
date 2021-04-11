@@ -1,0 +1,30 @@
+.icon {
+  color: rgba(0, 0, 0, 0.4);
+  height: 23px;
+  width: 23px;
+  font-size: 23px;
+  margin-right: 13px;
+}
+
+.input {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 23px;
+  font-size: 16px;
+  font-family: Roboto, sans-serif;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.search {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  height: 60px;
+  width: 533px;
+  display: flex;
+  align-items: center;
+  padding: 13px;
+}

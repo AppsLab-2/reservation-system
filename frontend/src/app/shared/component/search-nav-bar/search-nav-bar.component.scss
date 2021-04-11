@@ -1,0 +1,22 @@
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 700px;
+  height: 60px;
+  margin: 50px auto;
+}
+
+.user-icon {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 70px;
+  height: 64px;
+  width: 64px;
+  object-fit: cover;
+}
+
+.back-arrow {
+  height: 32px;
+  font-size: 32px;
+  color: rgba(0, 0, 0, 0.6);
+}

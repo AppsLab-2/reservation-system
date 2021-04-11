@@ -1,3 +1,4 @@
+<hera-search-nav-bar></hera-search-nav-bar>
 <hera-header title="Obľúbené" icon="far fa-heart" [showButton]="true"></hera-header>
 <div class="cards">
   <a *ngFor="let business of businesses$ | async" [routerLink]="['/business', business.id]">
