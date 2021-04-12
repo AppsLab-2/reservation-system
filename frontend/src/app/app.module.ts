@@ -10,6 +10,8 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { authReducer } from './core/store/reducer/auth.reducer';
+import { AuthEffects } from './core/store/effect/auth.effect';
 
 @NgModule({
   imports: [
@@ -19,12 +21,12 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     AppRoutingModule,
     HttpClientModule,
 
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ auth: authReducer }, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([AuthEffects]),
     StoreRouterConnectingModule.forRoot()
   ],
   declarations: [AppComponent],
