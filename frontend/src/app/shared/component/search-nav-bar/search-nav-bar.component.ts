@@ -7,7 +7,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./search-nav-bar.component.scss'],
 })
 export class SearchNavBarComponent implements OnInit {
-  width: string = '700px';
+  width = '700px';
   showBackArrow: boolean = !this.location.isCurrentPathEqualTo('/home');
 
   constructor(private location: Location) {}
@@ -18,7 +18,7 @@ export class SearchNavBarComponent implements OnInit {
     }
   }
 
-  back() {
+  back(): void {
     this.location.back();
   }
 }
