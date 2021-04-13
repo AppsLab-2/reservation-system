@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Business, BusinessDetail } from '../model/business.model';
+import { REST_API } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,11 @@ export class BusinessService {
   ) { }
 
   getBusinesses(): Observable<Business[]> {
-    return this.httpClient.get<Business[]>('http://localhost:8080/business');
+    return this.httpClient.get<Business[]>(`${REST_API}/business`);
   }
 
   getBusinessDetail(id: number): Observable<BusinessDetail> {
-    return this.httpClient.get<BusinessDetail>(`http://localhost:8080/business/${id}`);
+    return this.httpClient.get<BusinessDetail>(`${REST_API}/business/${id}`);
   }
 
 }

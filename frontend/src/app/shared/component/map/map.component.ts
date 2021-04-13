@@ -25,7 +25,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.zone.runOutsideAngular(() => {
-      if (this.location !== undefined && this.mapElement !== undefined) {
+      if (this.location && this.mapElement) {
         const options: MapOptions = {
           target: this.mapElement.nativeElement,
           layers: [
@@ -50,7 +50,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   // TODO: make sure this doesn't cause memory leak
   ngOnDestroy(): void {
     this.zone.runOutsideAngular(() => {
-      if (this.map !== undefined) {
+      if (this.map) {
         this.map.setTarget(undefined);
         this.map.dispose();
         this.map = undefined;

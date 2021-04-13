@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
+import { REST_API } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<string> {
-    const endpoint = 'http://localhost:8080/login';
+    const endpoint = `${REST_API}/login`;
     const body = { username, password };
     return this.httpClient.post<HttpResponse<any>>(endpoint, body, { observe: 'response', withCredentials: true }).pipe(
       mergeMap(response => {
