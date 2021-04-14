@@ -35,4 +35,10 @@ export class AuthService {
     );
   }
 
+  register(username: string, mailAddress: string, password: string): Observable<any> {
+    const endpoint = `${REST_API}/register`;
+    const body = { username, mailAddress, password };
+    return this.httpClient.post(endpoint, body);
+  }
+
 }

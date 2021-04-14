@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { login } from '../../store/action/auth.action';
-import { AuthState, selectHasError, selectLoading, selectLoggedIn } from '../../store/state/auth.state';
+import { LoginState, selectHasError, selectLoading, selectLoggedIn } from '../../store/state/login.state';
 import { filter, mergeMap, takeUntil } from 'rxjs/operators';
 import { from, Subject } from 'rxjs';
 
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject();
 
   constructor(
-    private readonly store$: Store<{ auth: AuthState }>,
+    private readonly store$: Store<{ login: LoginState }>,
     private readonly router: Router
   ) { }
 
