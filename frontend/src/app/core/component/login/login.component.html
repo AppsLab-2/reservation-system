@@ -1,18 +1,37 @@
 <div class="wrapper">
-  <div>
-    <div *ngIf="hasError">
-      There was an error logging in!
-    </div>
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-      <label>
-        Username:
-        <input type="text" formControlName="username">
-      </label><br>
-      <label>
-        Password:
-        <input type="password" formControlName="password">
-      </label><br>
-      <button type="submit" [disabled]="!submittable">Login</button>
+  <img
+    class="image"
+    src="https://images.pexels.com/photos/3771087/pexels-photo-3771087.jpeg"
+    alt="login image"
+  />
+  <div class="login-card">
+    <mat-error class="error" *ngIf="hasError">
+      Nastala chyba pri prihlasovaní
+    </mat-error>
+    <h1 class="title">Prihlásenie</h1>
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+      <label class="label">Používateľské meno</label>
+      <mat-form-field appearance="outline" floatLabel="never" class="field">
+        <input matInput formControlName="username" />
+      </mat-form-field>
+
+      <label class="label">Heslo</label>
+      <mat-form-field appearance="outline" floatLabel="never" class="field">
+        <input matInput type="password" formControlName="password" />
+      </mat-form-field>
+
+      <a class="password-reset">Zabudli ste heslo?</a>
+      <button
+        mat-stroked-button
+        class="login-button"
+        type="submit"
+        [disabled]="!submittable"
+      >
+        Prihlásiť sa
+      </button>
     </form>
+    <span class="footer">
+      Nemáte učet? <a class="register">Zaregistrovať</a>
+    </span>
   </div>
 </div>

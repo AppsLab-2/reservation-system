@@ -6,11 +6,14 @@ import { AuthService } from './service/auth.service';
 import { LoginComponent } from './component/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
+import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [
     AuthService,
@@ -20,7 +23,7 @@ import { CommonModule } from '@angular/common';
       multi: true
     }
   ],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent, RegisterComponent]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parent: CoreModule) {

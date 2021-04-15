@@ -11,7 +11,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { loginReducer } from './core/store/reducer/login.reducer';
-import { AuthEffects } from './core/store/effect/login.effect';
+import { LoginEffects } from './core/store/effect/login.effect';
+import { RegisterEffects } from './core/store/effect/register.effect';
+import { registerReducer } from './core/store/reducer/register.reducer';
 
 @NgModule({
   imports: [
@@ -21,12 +23,12 @@ import { AuthEffects } from './core/store/effect/login.effect';
     AppRoutingModule,
     HttpClientModule,
 
-    StoreModule.forRoot({ login: loginReducer }, {}),
+    StoreModule.forRoot({ login: loginReducer, register: registerReducer }, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([LoginEffects, RegisterEffects]),
     StoreRouterConnectingModule.forRoot()
   ],
   declarations: [AppComponent],

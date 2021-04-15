@@ -14,7 +14,6 @@ export const initialLoginState: LoginState = {
 };
 
 export const selectLoginState = (state: { login: LoginState }) => state.login;
-
 export const selectLoggedIn = createSelector(selectLoginState, state => state.loggedIn);
 export const selectLoading = createSelector(selectLoginState, state => state.loading);
 export const selectHasError = createSelector(selectLoginState, state => state.hasError);

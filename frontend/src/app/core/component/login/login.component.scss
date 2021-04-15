@@ -1,6 +1,67 @@
 .wrapper {
   display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.image {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.error {
+  text-align: center;
+}
+
+.login-card {
+  width: 550px;
+  height: 600px;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+}
+
+.field,
+.label,
+.password-reset {
+  width: 70%;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.password-reset,
+.register {
+  text-align: left;
+  color: #2c5282;
+}
+
+.login-button {
+  height: 50px;
+  width: 70%;
+  margin: 20px 0;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  color: rgba(0, 0, 0, 0.8);
 }

@@ -8,7 +8,7 @@ import { of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthEffects {
+export class LoginEffects {
 
   login$ = createEffect(() =>
     this.action$.pipe(
