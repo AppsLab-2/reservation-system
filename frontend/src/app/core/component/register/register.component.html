@@ -1,22 +1,36 @@
 <div class="wrapper">
-  <div>
-    <div *ngIf="hasError">
-      There was an error registering!
-    </div>
-    <form [formGroup]="registerForm" (ngSubmit)="register()">
-      <label>
-        Username:
-        <input type="text" formControlName="username">
-      </label><br>
-      <label>
-        Mail Address:
-        <input type="text" formControlName="mailAddress">
-      </label><br>
-      <label>
-        Password:
-        <input type="password" formControlName="password">
-      </label><br>
-      <button type="submit" [disabled]="!submittable">Register</button>
+  <div class="register-card">
+    <mat-error class="error" *ngIf="hasError">
+      Nastala chyba pri registrácii
+    </mat-error>
+    <h1 class="title">Vytvorenie účtu</h1>
+    <form class="form" [formGroup]="registerForm" (ngSubmit)="register()">
+      <label class="label">Používateľské meno</label>
+      <mat-form-field appearance="outline" class="field">
+        <input matInput formControlName="username" />
+      </mat-form-field>
+
+      <label class="label">Email</label>
+      <mat-form-field appearance="outline" floatLabel="never" class="field">
+        <input matInput formControlName="mailAddress" />
+      </mat-form-field>
+
+      <label class="label">Heslo</label>
+      <mat-form-field appearance="outline" floatLabel="never" class="field">
+        <input matInput formControlName="password" />
+      </mat-form-field>
+
+      <button
+        mat-stroked-button
+        class="register-button"
+        type="submit"
+        [disabled]="!submittable"
+      >
+        Vytvoriť účet
+      </button>
     </form>
+    <span class="footer">
+      Máte učet? <a routerLink="/login" class="login">Prihlásiť sa</a>
+    </span>
   </div>
 </div>

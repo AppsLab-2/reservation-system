@@ -14,6 +14,7 @@ import { loginReducer } from './core/store/reducer/login.reducer';
 import { LoginEffects } from './core/store/effect/login.effect';
 import { RegisterEffects } from './core/store/effect/register.effect';
 import { registerReducer } from './core/store/reducer/register.reducer';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { registerReducer } from './core/store/reducer/register.reducer';
     SharedModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    NoopAnimationsModule,
 
     StoreModule.forRoot({ login: loginReducer, register: registerReducer }, {}),
     StoreDevtoolsModule.instrument({

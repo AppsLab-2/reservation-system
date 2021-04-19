@@ -8,12 +8,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { RegisterComponent } from './component/register/register.component';
+import {AppRoutingModule} from '../app-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule
   ],
   providers: [
     AuthService,

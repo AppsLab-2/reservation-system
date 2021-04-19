@@ -1,6 +1,60 @@
 .wrapper {
   display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.error {
+  text-align: center;
+}
+
+.register-card {
+  width: 550px;
+  height: 600px;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+}
+
+.field,
+.label, {
+  width: 70%;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.login {
+  text-align: left;
+  color: #2c5282;
+  text-decoration: none;
+}
+
+.register-button {
+  height: 50px;
+  width: 70%;
+  margin: 20px 0;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  color: rgba(0, 0, 0, 0.8);
 }
