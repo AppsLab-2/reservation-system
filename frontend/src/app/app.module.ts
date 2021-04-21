@@ -14,6 +14,8 @@ import { loginReducer } from './core/store/reducer/login.reducer';
 import { LoginEffects } from './core/store/effect/login.effect';
 import { RegisterEffects } from './core/store/effect/register.effect';
 import { registerReducer } from './core/store/reducer/register.reducer';
+import { profileReducer } from './core/store/reducer/profile.reducer';
+import { ProfileEffects } from './core/store/effect/profile.effect';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -25,12 +27,12 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     NoopAnimationsModule,
 
-    StoreModule.forRoot({ login: loginReducer, register: registerReducer }, {}),
+    StoreModule.forRoot({ login: loginReducer, register: registerReducer, profile: profileReducer }, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([LoginEffects, RegisterEffects]),
+    EffectsModule.forRoot([LoginEffects, RegisterEffects, ProfileEffects]),
     StoreRouterConnectingModule.forRoot()
   ],
   declarations: [AppComponent],
