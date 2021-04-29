@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import java.time.LocalTime;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -24,6 +25,12 @@ public class Offer {
 
     @Column(name = "business_id", nullable = false)
     private long businessId;
+
+    @OneToMany(mappedBy = "offer", cascade = CascadeType.ALL)
+    private Set<Pitch> pitches;
+
+    @OneToMany(mappedBy = "offer")
+    private Set<Reservation> reservations;
 
     @NotBlank
     private String name;

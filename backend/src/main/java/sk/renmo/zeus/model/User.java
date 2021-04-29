@@ -38,6 +38,9 @@ public class User {
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
     private Set<Review> reviews;
 
+    @OneToMany(mappedBy = "recipient")
+    private Set<Reservation> reservations;
+
     @ManyToMany
     @JoinTable(
             name = "favorite_user_business",
