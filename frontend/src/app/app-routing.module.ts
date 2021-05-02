@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: '', loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule) },
   { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule), canActivate: [AuthGuard]  },
   { path: 'business', loadChildren: () => import('./modules/business/business.module').then(m => m.BusinessModule), canActivate: [AuthGuard] },
+  { path: 'offer', loadChildren: () => import('./modules/offer/offer.module').then(m => m.OfferModule), canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent }
 ];

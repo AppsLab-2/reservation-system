@@ -1,0 +1,58 @@
+<div *ngIf="offer">
+  <div class="wrapper">
+    <mat-horizontal-stepper [linear]="true" #stepper>
+      <mat-step>
+        <ng-template matStepLabel>Select date</ng-template>
+        <div *ngIf="dates" class="wrapper">
+          <hera-calendar [allowedDates]="dates" (selectedDate)="onSelectDate($event)" class="mat-elevation-z2"></hera-calendar>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Select time</ng-template>
+        <div *ngIf="pitches" class="wrapper">
+          <table mat-table [dataSource]="pitches" class="mat-elevation-z2">
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef>Id</th>
+              <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+            </ng-container>
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef>Date</th>
+              <td mat-cell *matCellDef="let element">{{ element.startDateTime | date }}</td>
+            </ng-container>
+            <ng-container matColumnDef="time">
+              <th mat-header-cell *matHeaderCellDef>Time</th>
+              <td mat-cell *matCellDef="let element">{{ element.startDateTime | date: 'shortTime' }}</td>
+            </ng-container>
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element">
+                <button class="button" (click)="onSelectPitch(element)" mat-stroked-button>Select</button>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayColumns"></tr>
+          </table>
+        </div>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Summary</ng-template>
+        <div *ngIf="offer && selectedPitch" class="wrapper wrapper-column">
+          <div class="wrapper summary">
+            <div class="summary-card mat-elevation-z2">
+              <p class="offer-title">{{ offer.name }}</p>
+              <p class="offer-description">{{ offer.description }}</p>
+            </div>
+            <div class="summary-card mat-elevation-z2">
+              <span>Date:</span> {{ selectedDate | date }}<br>
+              <span>Start Time:</span> {{ selectedPitch.startDateTime | date: 'shortTime' }}<br>
+              <span>End Time:</span> test<br>
+              <span>Length:</span> {{ offer.duration }}<br>
+              <span>Price:</span> {{ offer.price | currency: '€' }}<br>
+            </div>
+          </div>
+          <button class="button submit-button" (click)="reserve()" mat-stroked-button>Reserve</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>

@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { SearchBarComponent } from './component/search-bar/search-bar.component';
 import { SearchNavBarComponent } from './component/search-nav-bar/search-nav-bar.component';
+import { CalendarComponent } from './component/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SearchNavBarComponent } from './component/search-nav-bar/search-nav-bar
     OfferCardComponent,
     NavBarComponent,
     SearchBarComponent,
-    SearchNavBarComponent
+    SearchNavBarComponent,
+    CalendarComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { SearchNavBarComponent } from './component/search-nav-bar/search-nav-bar
     OfferCardComponent,
     NavBarComponent,
     SearchBarComponent,
-    SearchNavBarComponent
+    SearchNavBarComponent,
+    CalendarComponent
   ]
 })
 export class SharedModule {

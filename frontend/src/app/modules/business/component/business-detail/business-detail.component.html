@@ -34,6 +34,8 @@
     <hera-offer-card
       *ngFor="let offer of business.offers"
       [offer]="offer"
+      [routerLink]="['/offer', offer.id]"
+      class="offer-card"
     ></hera-offer-card>
   </div>
 </div>

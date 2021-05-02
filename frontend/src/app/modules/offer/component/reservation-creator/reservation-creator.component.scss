@@ -1,0 +1,58 @@
+mat-horizontal-stepper {
+  width: 75%;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.wrapper-column {
+  flex-direction: column;
+}
+
+hera-calendar {
+  width: 40%;
+}
+
+table {
+  width: 80%;
+}
+
+.button {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 32px;
+}
+
+.summary {
+  width: 60%;
+}
+
+.summary-card {
+  margin: 10px;
+  padding: 10px;
+  width: 50%;
+}
+
+.offer-title,
+.summary-card > span {
+  font-weight: bold;
+}
+
+.offer-description {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.submit-button {
+  margin: 0 auto;
+}
+
+.success-icon {
+  width: 192px;
+  height: 192px;
+}

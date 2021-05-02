@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { BusinessService } from '../../../../core/service/business.service';
 import { DetailAction, getBusinessDetailError, getBusinessDetailSuccess } from '../action/detail.action';
