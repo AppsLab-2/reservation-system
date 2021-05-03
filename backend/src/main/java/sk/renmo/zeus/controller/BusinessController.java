@@ -41,7 +41,7 @@ public class BusinessController {
         );
     }
 
-    private static BusinessDto toDto(Business business) {
+    public static BusinessDto toDto(Business business) {
         BusinessDto dto = new BusinessDto();
         dto.setId(business.getId());
         dto.setName(business.getName());
