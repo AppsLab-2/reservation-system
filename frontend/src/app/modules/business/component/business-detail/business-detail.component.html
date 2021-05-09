@@ -7,7 +7,20 @@
   />
   <div class="wrapper">
     <div class="business-info">
-      <p class="title">{{ business.name }}</p>
+      <div class="title-wrapper">
+        <p class="title">{{ business.name }}</p>
+        <button
+          mat-icon-button
+          (click)="toggleFavorite()"
+          class="favorite-button"
+        >
+          <i
+            class="fas fa-heart favorite-icon favorite-icon-red"
+            *ngIf="isFavorite"
+          ></i>
+          <i class="far fa-heart favorite-icon" *ngIf="!isFavorite"></i>
+        </button>
+      </div>
       <div class="tag">
         <i class="fas fa-cut tag-icon"></i>
         <span class="tag-text">Kaderníctvo</span>

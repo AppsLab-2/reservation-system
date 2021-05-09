@@ -18,6 +18,7 @@ import { OfferService } from './service/offer.service';
 import { PitchService } from './service/pitch.service';
 import { ProfileService } from './service/profile.service';
 import { ReservationService } from './service/reservation.service';
+import { FavoriteService } from './service/favorite.service';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { ReservationService } from './service/reservation.service';
   providers: [
     AuthService,
     BusinessService,
+    FavoriteService,
     OfferService,
     PitchService,
     ProfileService,
