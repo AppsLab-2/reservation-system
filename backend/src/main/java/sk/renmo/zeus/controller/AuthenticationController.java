@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import sk.renmo.zeus.dto.LoginDto;
+import sk.renmo.zeus.dto.ProfileDto;
 import sk.renmo.zeus.dto.RegisterDto;
 import sk.renmo.zeus.model.Address;
 import sk.renmo.zeus.model.User;
@@ -27,7 +28,7 @@ public class AuthenticationController {
     private final PasswordEncoder passwordEncoder;
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody @NotNull @Valid LoginDto loginInfo) {
+    public ResponseEntity<ProfileDto> login(@RequestBody @NotNull @Valid LoginDto loginInfo) {
         Optional<User> optionalUser = this.userService.getUserByUsername(loginInfo.getUsername());
 
         if (optionalUser.isEmpty()) {
@@ -41,9 +42,10 @@ public class AuthenticationController {
         }
 
         String jwt = this.jwtService.createJwtForUser(user);
+
         return ResponseEntity.ok()
                 .header("Authorization", "Bearer " + jwt)
-                .build();
+                .body(new ProfileDto(user.getUsername(), user.getIcon()));
     }
 
     @PostMapping("/register")

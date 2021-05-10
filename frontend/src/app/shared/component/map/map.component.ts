@@ -76,7 +76,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.zone.runOutsideAngular(() => {
-      if (this.map !== undefined) {
+      if (this.map) {
         this.map.setTarget(undefined);
         this.map.dispose();
         this.map = undefined;

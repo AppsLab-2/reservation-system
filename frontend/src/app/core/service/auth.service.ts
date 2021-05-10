@@ -1,8 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
-import { map, mergeMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 import { REST_API } from '../../../environments/environment';
+import { Profile } from '../model/profile.model';
+
+// TODO: move this
+export interface LoginSuccess {
+  token: string;
+  profile?: Profile;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -21,17 +28,19 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  login(username: string, password: string): Observable<string> {
+  login(username: string, password: string): Observable<LoginSuccess> {
     const endpoint = `${REST_API}/login`;
     const body = { username, password };
-    return this.httpClient.post<HttpResponse<any>>(endpoint, body, { observe: 'response', withCredentials: true }).pipe(
+    return this.httpClient.post<Profile>(endpoint, body, { observe: 'response' }).pipe(
       mergeMap(response => {
         const header: string | null = response.headers.get('Authorization');
-        return header !== null && header.startsWith('Bearer ')
-          ? of(header)
-          : throwError(new Error('Token not returned!'));
-      }),
-      map(header => header.substring('Bearer '.length))
+        if (header && header.startsWith('Bearer ')) {
+          const token = header.substring('Bearer '.length);
+          return of({ token, profile: response.body ?? undefined });
+        } else {
+          return throwError(new Error('Token not returned!'));
+        }
+      })
     );
   }
 
