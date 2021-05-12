@@ -1,0 +1,15 @@
+<hera-search-nav-bar></hera-search-nav-bar>
+
+<hera-header title="Odporúčané" icon="far fa-star" [showButton]="true"></hera-header>
+<div class="cards">
+  <a *ngFor="let business of businesses$ | async" [routerLink]="['/client/business', business.id]">
+    <hera-business-card [business]="business"></hera-business-card>
+  </a>
+</div>
+
+<hera-header title="Obľúbené" icon="far fa-heart" [showButton]="true"></hera-header>
+<div class="cards">
+  <a *ngFor="let business of favoriteBusinesses$ | async" [routerLink]="['/client/business', business.id]">
+    <hera-business-card [business]="business"></hera-business-card>
+  </a>
+</div>

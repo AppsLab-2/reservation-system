@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.store$.select(selectLoggedIn).pipe(
       takeUntil(this.unsubscribe$),
       filter(isLoggedIn => isLoggedIn),
-      mergeMap(_ => from(this.router.navigateByUrl('/home')))
+      mergeMap(_ => from(this.router.navigateByUrl('/client')))
     ).subscribe();
 
     this.store$.select(selectLoading).pipe(

@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './core/guard/auth.guard';
+
+import { LandingComponent } from './core/component/landing/landing.component';
 import { LoginComponent } from './core/component/login/login.component';
 import { RegisterComponent } from './core/component/register/register.component';
 
+import { AuthGuard } from './core/guard/auth.guard';
+
 const routes: Routes = [
-  { path: '', loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule) },
-  { path: 'home', loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule), canActivate: [AuthGuard]  },
-  { path: 'business', loadChildren: () => import('./modules/business/business.module').then(m => m.BusinessModule), canActivate: [AuthGuard] },
-  { path: 'offer', loadChildren: () => import('./modules/offer/offer.module').then(m => m.OfferModule), canActivate: [AuthGuard] },
+  { path: '', component: LandingComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule), canActivate: [AuthGuard] }
 ];
 
 @NgModule({

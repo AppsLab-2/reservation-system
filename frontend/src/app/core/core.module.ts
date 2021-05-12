@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 
+import { LandingComponent } from './component/landing/landing.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 
@@ -19,6 +20,7 @@ import { PitchService } from './service/pitch.service';
 import { ProfileService } from './service/profile.service';
 import { ReservationService } from './service/reservation.service';
 import { FavoriteService } from './service/favorite.service';
+
 
 @NgModule({
   imports: [
@@ -42,6 +44,7 @@ import { FavoriteService } from './service/favorite.service';
     }
   ],
   declarations: [
+    LandingComponent,
     LoginComponent,
     RegisterComponent
   ]

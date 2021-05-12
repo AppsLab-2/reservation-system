@@ -1,0 +1,54 @@
+<!-- TODO: finish this page -->
+<div *ngIf="business">
+  <img
+    src="{{ business.headerImage }}"
+    class="header-image"
+    alt="Business header image"
+  />
+  <div class="wrapper">
+    <div class="business-info">
+      <div class="title-wrapper">
+        <p class="title">{{ business.name }}</p>
+        <button
+          mat-icon-button
+          (click)="toggleFavorite()"
+          class="favorite-button"
+        >
+          <i
+            class="fas fa-heart favorite-icon favorite-icon-red"
+            *ngIf="isFavorite"
+          ></i>
+          <i class="far fa-heart favorite-icon" *ngIf="!isFavorite"></i>
+        </button>
+      </div>
+      <div class="tag">
+        <i class="fas fa-cut tag-icon"></i>
+        <span class="tag-text">Kaderníctvo</span>
+      </div>
+      <p class="description">
+        {{ business.description }}
+      </p>
+      <div class="contact">
+        <div>
+          <i class="fas fa-envelope"></i>
+          <span>monika@kadernictvomonika.sk</span>
+        </div>
+        <div>
+          <i class="fas fa-phone"></i>
+          <span>+421 123 456 789</span>
+        </div>
+      </div>
+    </div>
+    <hera-address-card [address]="business.address"></hera-address-card>
+  </div>
+
+  <hera-header title="Ponuky" icon="fas fa-bars"></hera-header>
+  <div class="offers">
+    <hera-offer-card
+      *ngFor="let offer of business.offers"
+      [offer]="offer"
+      [routerLink]="['/client/offer', offer.id]"
+      class="offer-card"
+    ></hera-offer-card>
+  </div>
+</div>
