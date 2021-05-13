@@ -4,10 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sk.renmo.zeus.dto.ReservationDto;
-import sk.renmo.zeus.model.Pitch;
 import sk.renmo.zeus.model.Reservation;
 import sk.renmo.zeus.model.User;
-import sk.renmo.zeus.service.PitchService;
 import sk.renmo.zeus.service.ReservationService;
 import sk.renmo.zeus.service.UserService;
 
@@ -20,7 +18,6 @@ import java.util.stream.Collectors;
 public class ReservationController {
 
     private final UserService userService;
-    private final PitchService pitchService;
     private final ReservationService reservationService;
 
     @GetMapping
@@ -35,9 +32,7 @@ public class ReservationController {
     public ResponseEntity<ReservationDto> createReservation(@RequestParam long pitchId) {
         User user = this.userService.getCurrentAuthenticatedUser();
         return ResponseEntity.of(
-                this.pitchService.getPitchById(pitchId)
-                        .filter(Pitch::hasNotExpired)
-                        .map(pitch -> this.reservationService.createReservationForUser(user, pitch))
+                this.reservationService.createReservationForUser(user, pitchId)
                         .map(ReservationController::toDto)
         );
     }

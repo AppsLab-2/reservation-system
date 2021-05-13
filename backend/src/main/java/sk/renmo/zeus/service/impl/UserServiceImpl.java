@@ -1,10 +1,11 @@
-package sk.renmo.zeus.service;
+package sk.renmo.zeus.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import sk.renmo.zeus.model.User;
 import sk.renmo.zeus.repository.UserRepository;
+import sk.renmo.zeus.service.UserService;
 
 import java.util.Optional;
 

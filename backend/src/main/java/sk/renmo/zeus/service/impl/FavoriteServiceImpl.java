@@ -1,4 +1,4 @@
-package sk.renmo.zeus.service;
+package sk.renmo.zeus.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import sk.renmo.zeus.model.Business;
 import sk.renmo.zeus.model.User;
 import sk.renmo.zeus.repository.UserRepository;
+import sk.renmo.zeus.service.BusinessService;
+import sk.renmo.zeus.service.FavoriteService;
+import sk.renmo.zeus.service.UserService;
 
 import java.util.Collection;
 import java.util.Optional;

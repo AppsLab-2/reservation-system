@@ -1,9 +1,10 @@
-package sk.renmo.zeus.service;
+package sk.renmo.zeus.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sk.renmo.zeus.model.Review;
 import sk.renmo.zeus.repository.ReviewRepository;
+import sk.renmo.zeus.service.ReviewService;
 import sk.renmo.zeus.util.IterableUtils;
 
 import java.util.Collection;

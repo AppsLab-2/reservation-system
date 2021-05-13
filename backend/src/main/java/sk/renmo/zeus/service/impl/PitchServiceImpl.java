@@ -1,10 +1,11 @@
-package sk.renmo.zeus.service;
+package sk.renmo.zeus.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sk.renmo.zeus.model.Pitch;
 import sk.renmo.zeus.repository.PitchRepository;
+import sk.renmo.zeus.service.PitchService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -19,6 +20,11 @@ import java.util.stream.Collectors;
 public class PitchServiceImpl implements PitchService {
 
     private final PitchRepository repository;
+
+    @Override
+    public void deletePitch(Pitch pitch) {
+        this.repository.delete(pitch);
+    }
 
     @Override
     public Optional<Pitch> getPitchById(long id) {
