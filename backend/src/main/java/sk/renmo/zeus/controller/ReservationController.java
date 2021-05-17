@@ -28,6 +28,14 @@ public class ReservationController {
                 .collect(Collectors.toSet());
     }
 
+    @GetMapping("/business/{id}")
+    public Collection<ReservationDto> getReservationsByBusiness(@PathVariable("id") long businessId) {
+        User user = this.userService.getCurrentAuthenticatedUser();
+        return this.reservationService.getReservationsByBusiness(user.getId(), businessId).stream()
+                .map(ReservationController::toDto)
+                .collect(Collectors.toSet());
+    }
+
     @PostMapping
     public ResponseEntity<ReservationDto> createReservation(@RequestParam long pitchId) {
         User user = this.userService.getCurrentAuthenticatedUser();

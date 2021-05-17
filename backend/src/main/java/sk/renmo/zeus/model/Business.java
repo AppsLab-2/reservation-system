@@ -26,6 +26,10 @@ public class Business {
 
     @NotNull
     @OneToMany(mappedBy = "business", cascade = CascadeType.ALL)
+    private Set<Employee> employees;
+
+    @NotNull
+    @OneToMany(mappedBy = "business", cascade = CascadeType.ALL)
     private Set<Offer> offers;
 
     @OneToMany(mappedBy = "business", cascade = CascadeType.ALL)
