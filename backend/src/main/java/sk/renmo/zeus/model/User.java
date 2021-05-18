@@ -35,6 +35,9 @@ public class User {
     @NotNull
     private Address address;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Employee> employees;
+
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
     private Set<Review> reviews;
 
