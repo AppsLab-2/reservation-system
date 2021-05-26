@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Business, BusinessDetail } from '../model/business.model';
 import { REST_API } from '../../../environments/environment';
@@ -20,5 +20,11 @@ export class BusinessService {
   getBusinessDetail(id: number): Observable<BusinessDetail> {
     return this.httpClient.get<BusinessDetail>(`${REST_API}/business/${id}`);
   }
+
+  getSearchResults(query: string): Observable<Business[]> {
+    const params = new HttpParams().set('query', query);
+    return this.httpClient.get<Business[]>(`${REST_API}/business/search`, { params });
+  }
+
 
 }

@@ -9,7 +9,9 @@ import sk.renmo.zeus.service.EmployeeService;
 import sk.renmo.zeus.util.IterableUtils;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -30,6 +32,27 @@ public class EmployeeServiceImpl implements EmployeeService {
         return IterableUtils.toStream(employees)
                 .map(Employee::getBusiness)
                 .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Collection<Employee> getEmployeesOfBusiness(long userId, long businessId) {
+        Iterable<Employee> employeeIterable = this.repository.findAllByBusinessId(businessId);
+        Collection<Employee> employees = new HashSet<>();
+        boolean member = false;
+
+        for (Employee employee : employeeIterable) {
+            if (employee.getUserId() == userId) {
+                member = true;
+            }
+            employees.add(employee);
+        }
+
+        if (member) {
+            return employees;
+        } else {
+            // TODO: should we throw here?
+            return Set.of();
+        }
     }
 
 }

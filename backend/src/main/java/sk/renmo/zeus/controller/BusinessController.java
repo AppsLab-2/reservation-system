@@ -2,10 +2,7 @@ package sk.renmo.zeus.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import sk.renmo.zeus.dto.BusinessDetailDto;
 import sk.renmo.zeus.dto.BusinessDto;
 import sk.renmo.zeus.dto.WeeklyHoursDto;
@@ -39,6 +36,15 @@ public class BusinessController {
                         .getBusinessById(id)
                         .map(BusinessController::toDetailDto)
         );
+    }
+
+    @GetMapping("search")
+    public Collection<BusinessDto> getSearchResults(@RequestParam String query) {
+        return this.businessService
+                .getSearchResults(query)
+                .stream()
+                .map(BusinessController::toDto)
+                .collect(Collectors.toSet());
     }
 
     public static BusinessDto toDto(Business business) {

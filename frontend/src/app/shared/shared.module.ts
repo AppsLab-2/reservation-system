@@ -10,6 +10,7 @@ import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { SearchBarComponent } from './component/search-bar/search-bar.component';
 import { SearchNavBarComponent } from './component/search-nav-bar/search-nav-bar.component';
 import { CalendarComponent } from './component/calendar/calendar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,11 +26,13 @@ import { CalendarComponent } from './component/calendar/calendar.component';
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     CommonModule,
     MaterialModule,
+    ReactiveFormsModule,
     BusinessCardComponent,
     MapComponent,
     HeaderComponent,

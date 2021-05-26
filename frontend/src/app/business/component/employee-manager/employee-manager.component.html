@@ -1,0 +1,14 @@
+<hera-business-header icon="group" title="Zamestnanci:" buttonText="Pridať"></hera-business-header>
+<mat-card *ngFor="let employee of employees">
+  <img alt="User Icon" src="https://images.pexels.com/photos/1559486/pexels-photo-1559486.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+  <span class="name">{{ employee.profile.username }}</span>
+
+  <div class="spacer"></div>
+
+  <mat-icon>work</mat-icon>
+  <span class="position">{{ employee.role }}</span>
+
+  <div class="spacer"></div>
+
+  <mat-icon class="more-icon">more_vert</mat-icon>
+</mat-card>

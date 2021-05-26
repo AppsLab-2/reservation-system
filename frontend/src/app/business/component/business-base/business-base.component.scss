@@ -1,0 +1,53 @@
+.nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  background-color: rgba(196, 196, 196, 0.2);
+}
+
+mat-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.nav > div {
+  height: 64px;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.nav > div:last-of-type {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.nav > div:hover {
+  background-color: rgb(196, 196, 196, 0.5);
+}
+
+.active {
+  background-color: rgb(196, 196, 196, 0.3);
+}
+
+.title {
+  margin: 48px;
+  font-size: 36px;
+  text-align: center;
+}
+
+.content {
+  position: absolute;
+  left: 80px;
+  right: 0;
+  top: 0;
+}
+
+.wrapper {
+  padding: 0 calc(100vw - 85%);
+}

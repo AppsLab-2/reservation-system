@@ -1,0 +1,8 @@
+<mat-card *ngIf="activeReservations">
+  Aktívne rezervácie:
+  <hera-reservation-list [reservations]="activeReservations"></hera-reservation-list>
+</mat-card>
+<mat-card *ngIf="upcomingReservations">
+  Nasledujúce rezervácie:
+  <hera-reservation-list [reservations]="upcomingReservations"></hera-reservation-list>
+</mat-card>

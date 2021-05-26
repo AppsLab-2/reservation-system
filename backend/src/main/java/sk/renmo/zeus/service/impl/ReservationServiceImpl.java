@@ -10,9 +10,8 @@ import sk.renmo.zeus.service.PitchService;
 import sk.renmo.zeus.service.ReservationService;
 import sk.renmo.zeus.util.IterableUtils;
 
-import java.util.Collection;
-import java.util.Optional;
-import java.util.Set;
+import java.time.LocalDate;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -49,18 +48,44 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public Collection<Reservation> getReservationsByBusiness(long userId, long businessId) {
+    @Transactional
+    public Collection<Reservation> getReservationsByBusinessAndDate(long userId, long businessId, LocalDate date) {
         return this.employeeService.getEmployeeByUserIdAndBusinessId(userId, businessId)
                 .map(Employee::getBusiness)
-                .map(ReservationServiceImpl::getAllReservations)
-                // TODO: should we throw here
+                .map(business -> getReservationsForDate(business, date))
+                // TODO: should we throw here?
                 .orElse(Set.of());
     }
 
-    private static Collection<Reservation> getAllReservations(Business business) {
+    private static Collection<Reservation> getReservationsForDate(Business business, LocalDate date) {
         return business.getOffers().stream()
                 .flatMap(offer -> offer.getReservations().stream())
+                .filter(reservation -> reservation.getStartDateTime().toLocalDate().isEqual(date))
                 .collect(Collectors.toSet());
+    }
+
+    @Override
+    @Transactional
+    public Map<LocalDate, Collection<Reservation>> getDatesToReservationsMapForBusiness(long userId, long businessId) {
+        return this.employeeService.getEmployeeByUserIdAndBusinessId(userId, businessId)
+                .map(employee -> mapDatesToReservations(employee.getBusiness()))
+                // TODO: should we throw here?
+                .orElse(Map.of());
+    }
+
+    private static Map<LocalDate, Collection<Reservation>> mapDatesToReservations(Business business) {
+        return business.getOffers().stream()
+                .flatMap(offer -> offer.getReservations().stream())
+                .filter(reservation -> isInFutureOrToday(reservation.getStartDateTime().toLocalDate()))
+                .collect(Collectors.groupingBy(
+                        reservation -> reservation.getStartDateTime().toLocalDate(),
+                        Collectors.toCollection(HashSet::new)
+                ));
+    }
+
+    private static boolean isInFutureOrToday(LocalDate date) {
+        LocalDate now = LocalDate.now();
+        return date.isAfter(now) || date.isEqual(now);
     }
 
 }

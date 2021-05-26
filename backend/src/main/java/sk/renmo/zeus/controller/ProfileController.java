@@ -18,6 +18,10 @@ public class ProfileController {
     @GetMapping
     public ProfileDto getProfile() {
         User user = this.userService.getCurrentAuthenticatedUser();
+        return ProfileController.toProfile(user);
+    }
+
+    static ProfileDto toProfile(User user) {
         return new ProfileDto(user.getUsername(), user.getIcon());
     }
 

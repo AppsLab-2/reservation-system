@@ -1,0 +1,23 @@
+div {
+  display: flex;
+  height: 32px;
+  align-items: center;
+}
+
+mat-icon {
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+  margin-right: 8px;
+}
+
+span {
+  font-size: 24px;
+}
+
+.action-button {
+  height: 32px;
+  margin-left: auto;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+}

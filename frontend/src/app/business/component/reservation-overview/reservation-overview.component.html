@@ -1,0 +1,4 @@
+<mat-expansion-panel *ngFor="let pair of map | keyvalue">
+  <mat-expansion-panel-header>{{ pair.key | date }}</mat-expansion-panel-header>
+  <hera-reservation-list [reservations]="pair.value"></hera-reservation-list>
+</mat-expansion-panel>

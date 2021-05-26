@@ -1,0 +1,21 @@
+<mat-selection-list [multiple]="false">
+  <mat-list-option *ngFor="let reservation of reservations">
+    <div class="reservation">
+      <mat-icon>reorder</mat-icon>
+      <span>{{ reservation.offer.name }}</span>
+
+      <div class="empty-space"></div>
+
+      <mat-icon>schedule</mat-icon>
+      <span>{{ reservation.startDateTime | date: 'shortTime' }}</span>
+
+      <mat-icon>timer</mat-icon>
+      <span>{{ reservation.offer.duration }}</span>
+
+      <mat-icon>payments</mat-icon>
+      <span>{{ reservation.offer.price | currency: 'EUR' }}</span>
+
+      <mat-divider></mat-divider>
+    </div>
+  </mat-list-option>
+</mat-selection-list>

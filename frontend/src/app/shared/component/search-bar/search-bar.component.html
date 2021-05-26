@@ -1,4 +1,4 @@
 <div class="search">
-  <i class="fas fa-search icon"></i>
-  <input class="input" placeholder="Nájsť službu" />
+  <i class="fas fa-search icon" (click)="search()"></i>
+  <input class="input" placeholder="Nájsť službu" [formControl]="searchControl"/>
 </div>

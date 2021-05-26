@@ -27,4 +27,10 @@ public class BusinessServiceImpl implements BusinessService {
         return this.repository.findById(id);
     }
 
+    @Override
+    public Collection<Business> getSearchResults(String query) {
+        Iterable<Business> businesses = this.repository.findByNameOrDescriptionContaining(query);
+        return IterableUtils.toSet(businesses);
+    }
+
 }

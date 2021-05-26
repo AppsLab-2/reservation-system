@@ -1,6 +1,7 @@
 package sk.renmo.zeus.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sk.renmo.zeus.dto.ReservationDto;
@@ -9,7 +10,10 @@ import sk.renmo.zeus.model.User;
 import sk.renmo.zeus.service.ReservationService;
 import sk.renmo.zeus.service.UserService;
 
+import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -29,11 +33,32 @@ public class ReservationController {
     }
 
     @GetMapping("/business/{id}")
-    public Collection<ReservationDto> getReservationsByBusiness(@PathVariable("id") long businessId) {
+    public Collection<ReservationDto> getReservationsByBusinessAndDate(
+            @PathVariable("id") long businessId,
+            @RequestParam("date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Optional<LocalDate> requestedDate
+    ) {
         User user = this.userService.getCurrentAuthenticatedUser();
-        return this.reservationService.getReservationsByBusiness(user.getId(), businessId).stream()
+        LocalDate date = requestedDate.orElseGet(LocalDate::now);
+
+        return this.reservationService.getReservationsByBusinessAndDate(user.getId(), businessId, date).stream()
                 .map(ReservationController::toDto)
                 .collect(Collectors.toSet());
+    }
+
+    @GetMapping("/business/{id}/map")
+    public Map<LocalDate, Collection<ReservationDto>> getDatesToReservationsMapForBusiness(
+            @PathVariable("id") long businessId
+    ) {
+        User user = this.userService.getCurrentAuthenticatedUser();
+
+        return this.reservationService.getDatesToReservationsMapForBusiness(user.getId(), businessId)
+                .entrySet().stream()
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        entry -> entry.getValue().stream()
+                                .map(ReservationController::toDto)
+                                .collect(Collectors.toSet())
+                ));
     }
 
     @PostMapping

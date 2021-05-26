@@ -8,7 +8,7 @@ import { Location } from '@angular/common';
 })
 export class SearchNavBarComponent implements OnInit {
   width = '700px';
-  showBackArrow: boolean = !this.location.isCurrentPathEqualTo('/home');
+  showBackArrow: boolean = !this.location.isCurrentPathEqualTo('/client');
 
   constructor(private location: Location) {}
 

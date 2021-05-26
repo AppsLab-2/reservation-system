@@ -17,4 +17,8 @@ export class OfferService {
     return this.httpClient.get<Offer>(`${REST_API}/offer/${id}`);
   }
 
+  getOffersByBusiness(businessId: number): Observable<Offer[]> {
+    return this.httpClient.get<Offer[]>(`${REST_API}/business/${businessId}/offer`);
+  }
+
 }

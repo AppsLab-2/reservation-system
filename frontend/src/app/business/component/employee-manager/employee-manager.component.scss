@@ -1,0 +1,46 @@
+mat-icon {
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+  margin-right: 8px;
+}
+
+mat-card {
+  display: flex;
+  align-items: center;
+  height: 96px;
+  margin-top: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+mat-card > * {
+  color: rgb(0, 0, 0, 0.8);
+}
+
+img {
+  width: 64px;
+  height: 64px;
+  margin-right: 16px;
+  border-radius: 70px;
+  object-fit: cover;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+}
+
+.name {
+  font-size: 20px;
+  flex-grow: 2;
+}
+
+.position {
+  font-size: 20px;
+  flex-grow: 1;
+}
+
+.more-icon {
+  cursor: pointer;
+}
+
+.spacer {
+  flex-grow: 1;
+}

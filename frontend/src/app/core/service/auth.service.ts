@@ -50,4 +50,9 @@ export class AuthService {
     return this.httpClient.post(endpoint, body);
   }
 
+  // TODO: this is a quick fix
+  logout(): void {
+    localStorage.removeItem('token');
+  }
+
 }

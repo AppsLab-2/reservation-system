@@ -17,6 +17,7 @@ import { AddressCardComponent } from './component/address-card/address-card.comp
 import { BusinessDetailComponent } from './component/business-detail/business-detail.component';
 import { HomeComponent } from './component/home/home.component';
 import { ReservationCreatorComponent } from './component/reservation-creator/reservation-creator.component';
+import { SearchComponent } from './component/search/search.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ReservationCreatorComponent } from './component/reservation-creator/res
     AddressCardComponent,
     BusinessDetailComponent,
     HomeComponent,
-    ReservationCreatorComponent
+    ReservationCreatorComponent,
+    SearchComponent
   ]
 })
 export class ClientModule { }

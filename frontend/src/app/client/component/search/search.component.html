@@ -1,0 +1,9 @@
+<hera-search-nav-bar></hera-search-nav-bar>
+
+<hera-header title="Výsledky hľadania" icon="fas fa-search" [showButton]="false"></hera-header>
+
+<div class="cards">
+  <a *ngFor="let business of businesses$ | async" [routerLink]="['/client/business', business.id]">
+    <hera-business-card [business]="business"></hera-business-card>
+  </a>
+</div>

@@ -1,0 +1,5 @@
+<hera-business-header icon="local_offer" title="Ponuky:" buttonText="Pridať"></hera-business-header>
+<div *ngFor="let offer of offers">
+  <hera-offer-card [offer]="offer"></hera-offer-card>
+  <mat-icon>more_vert</mat-icon>
+</div>

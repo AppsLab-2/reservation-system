@@ -1,0 +1,15 @@
+<div class="nav">
+  <div
+    *ngFor="let entry of navigation"
+    [routerLink]="entry.destination"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">
+    <mat-icon>{{ entry.icon }}</mat-icon>
+  </div>
+</div>
+<div *ngIf="!loading" class="content">
+  <div *ngIf="title" class="title">{{ title }}</div>
+  <div class="wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</div>

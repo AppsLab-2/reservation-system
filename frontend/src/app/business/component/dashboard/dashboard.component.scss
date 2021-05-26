@@ -1,0 +1,8 @@
+mat-card {
+  padding: 24px;
+  font-size: 24px;
+}
+
+mat-card:not(:first-of-type) {
+  margin-top: 24px
+}

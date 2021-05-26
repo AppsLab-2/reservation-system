@@ -11,7 +11,16 @@ const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule), canActivate: [AuthGuard] }
+  {
+    path: 'client',
+    loadChildren: () => import('./client/client.module').then(m => m.ClientModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'business',
+    loadChildren: () => import('./business/business.module').then(m => m.BusinessModule),
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

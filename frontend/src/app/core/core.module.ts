@@ -5,7 +5,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 
@@ -25,7 +24,6 @@ import { FavoriteService } from './service/favorite.service';
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     SharedModule,
     AppRoutingModule
   ],

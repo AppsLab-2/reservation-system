@@ -30,6 +30,11 @@ public class Pitch {
     @Nullable
     private LocalDateTime expireDateTime;
 
+    public void setOffer(Offer offer) {
+        this.offer = offer;
+        this.offerId = offer.getId();
+    }
+
     public boolean hasNotExpired() {
         LocalDateTime expiry = this.getExpireDateTime();
         return expiry == null || LocalDateTime.now().isBefore(expiry);

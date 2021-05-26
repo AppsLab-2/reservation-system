@@ -1,0 +1,18 @@
+mat-icon {
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+}
+
+mat-icon:not(:first-of-type) {
+  margin-left: 8px;
+}
+
+.reservation {
+  display: flex;
+  align-items: center;
+}
+
+.empty-space {
+  flex-grow: 1;
+}
