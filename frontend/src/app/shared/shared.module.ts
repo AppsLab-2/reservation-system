@@ -11,6 +11,7 @@ import { SearchBarComponent } from './component/search-bar/search-bar.component'
 import { SearchNavBarComponent } from './component/search-nav-bar/search-nav-bar.component';
 import { CalendarComponent } from './component/calendar/calendar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MaterialModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     CommonModule,

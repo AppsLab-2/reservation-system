@@ -2,6 +2,7 @@
   <img
     src="{{business.headerImage}}"
     class="card-image"
+    alt="Business image"
   />
   <div class="content">
     <p>{{business.name}}</p>
@@ -18,7 +19,7 @@
       <i class="fas fa-cut tag-icon"></i>
       <span class="tag-text">Kaderníctvo</span>
     </div>
-    <div class="tag">
+    <div class="tag" *ngIf="isFavorite">
       <i class="fas fa-heart tag-icon"></i>
       <span class="tag-text">Obľúbené</span>
     </div>

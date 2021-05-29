@@ -38,7 +38,7 @@
   width: 20px;
 }
 
-.favorite-icon-red {
+.red {
   color: rgba(240, 0, 0, 0.8);
 }
 
@@ -46,12 +46,11 @@
   height: 20px;
   display: flex;
   align-items: center;
-  color: rgba(240, 0, 0, 0.8);
 }
 
 .tag-text {
   margin-left: 5px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .description {
@@ -65,4 +64,9 @@
 .offer-card {
   margin: 18px auto;
   cursor: pointer;
+}
+
+.contact-text {
+  margin-left: 5px;
+  font-size: 14px;
 }

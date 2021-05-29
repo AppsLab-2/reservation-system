@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -10,14 +10,19 @@ import { FormControl, Validators } from '@angular/forms';
 export class SearchBarComponent implements OnInit {
   searchControl = new FormControl('', Validators.required);
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      const query = params.query;
+      this.searchControl.setValue(query);
+    });
+  }
 
   search(): void {
     if (this.searchControl.valid) {
       const query = this.searchControl.value;
-      this.router.navigate(['client/search'], { queryParams: { query }});
+      this.router.navigate(['client/search'], { queryParams: { query } });
     }
   }
 }

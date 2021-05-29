@@ -1,4 +1,10 @@
-<div class="search">
-  <i class="fas fa-search icon" (click)="search()"></i>
-  <input class="input" placeholder="Nájsť službu" [formControl]="searchControl"/>
-</div>
+<form class="search" (ngSubmit)="search()">
+  <button mat-icon-button type="submit">
+    <i class="fas fa-search icon"></i>
+  </button>
+  <input
+    class="input"
+    placeholder="Nájsť službu"
+    [formControl]="searchControl"
+  />
+</form>

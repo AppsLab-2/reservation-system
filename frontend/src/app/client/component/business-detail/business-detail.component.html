@@ -15,27 +15,27 @@
           class="favorite-button"
         >
           <i
-            class="fas fa-heart favorite-icon favorite-icon-red"
+            class="fas fa-heart red favorite-icon"
             *ngIf="isFavorite"
           ></i>
           <i class="far fa-heart favorite-icon" *ngIf="!isFavorite"></i>
         </button>
       </div>
-      <div class="tag">
+      <div class="tag red">
         <i class="fas fa-cut tag-icon"></i>
         <span class="tag-text">Kaderníctvo</span>
       </div>
       <p class="description">
         {{ business.description }}
       </p>
-      <div class="contact">
-        <div>
+      <div>
+        <div class="tag">
           <i class="fas fa-envelope"></i>
-          <span>monika@kadernictvomonika.sk</span>
+          <span class="contact-text">monika@kadernictvomonika.sk</span>
         </div>
-        <div>
+        <div class="tag">
           <i class="fas fa-phone"></i>
-          <span>+421 123 456 789</span>
+          <span class="contact-text">+421 123 456 789</span>
         </div>
       </div>
     </div>
