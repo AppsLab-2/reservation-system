@@ -12,6 +12,7 @@ import { SearchNavBarComponent } from './component/search-nav-bar/search-nav-bar
 import { CalendarComponent } from './component/calendar/calendar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { AccountCardComponent } from './component/account-card/account-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     NavBarComponent,
     SearchBarComponent,
     SearchNavBarComponent,
-    CalendarComponent
+    CalendarComponent,
+    AccountCardComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import { FormsModule } from '@angular/forms';
     NavBarComponent,
     SearchBarComponent,
     SearchNavBarComponent,
-    CalendarComponent
+    CalendarComponent,
+    AccountCardComponent
   ]
 })
 export class SharedModule {

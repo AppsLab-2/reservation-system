@@ -18,6 +18,7 @@ import { BusinessDetailComponent } from './component/business-detail/business-de
 import { HomeComponent } from './component/home/home.component';
 import { ReservationCreatorComponent } from './component/reservation-creator/reservation-creator.component';
 import { SearchComponent } from './component/search/search.component';
+import { AccountComponent } from './component/account/account.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { SearchComponent } from './component/search/search.component';
     BusinessDetailComponent,
     HomeComponent,
     ReservationCreatorComponent,
-    SearchComponent
+    SearchComponent,
+    AccountComponent
   ]
 })
 export class ClientModule { }
